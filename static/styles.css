@@ -1,0 +1,134 @@
+@font-face {
+	font-family: Raleway;
+	src: url(raleway.ttf);
+}
+
+.home {
+	position: absolute;
+	top: 0px;
+	width: 8vh;
+	height: 8vh;
+}
+
+.smiley h2:hover{
+	transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+}
+
+.smiley{
+	width: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.smiley h2{
+	-webkit-transition: -webkit-transform 1.5s ease-in-out;
+	font-size: 50px;
+	text-align: center;
+}
+
+.resume-wrapper{
+	width: 200px;
+	font-size: 200%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: "Courier New";
+}
+
+.resume div:hover{
+	background: black;
+	color: white;
+}
+
+a.resume{
+	color: black;
+	text-decoration: none;
+}
+
+.main {
+	margin-top: 20vh;
+	margin-left: auto;
+	margin-right: auto;
+    text-align: center;
+    font-size: 400%;
+    font-family: Raleway;
+}
+
+#my-signin2 {
+	position: absolute;
+	top: 5vh;
+	right: 5vw;
+}
+
+.social-logo {
+	text-align: center;
+}
+
+.social-logo a{
+	display: inline-block;
+	margin: 10px;
+	width: 8vh;
+	height: 8vh;
+}
+
+.social-logo img {
+	width: 8vh;
+	height: 8vh;
+}
+
+.social-logo img:hover{
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.myfab{
+	background: green;
+	display: block;
+	width: 70px;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	color: white;
+	font-size: 35px;
+	border-radius: 50%;
+	--webkit-border-radius: 50%;
+	text-decoration: none;
+	position: fixed;
+	right: 5vw;
+	bottom: 5vh;
+
+	align-self: flex-end;
+    animation-duration: 1s;
+    margin: 0 auto 0 auto;
+    transform-origin: bottom;
+}
+
+.myfab:hover{
+	animation-name: bounce;
+    animation-timing-function: ease;
+}
+
+@keyframes bounce {
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-30px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
+}
