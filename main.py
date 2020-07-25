@@ -1,9 +1,6 @@
-from app import app
-
 import os
 from flask import Flask, url_for, redirect, send_from_directory, render_template, abort, request
 import redis
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -11,27 +8,21 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage, ImageMessage, ImageSendMessage
 )
+from vision_helper import vision_helper
+from sheets_helper import sheets_helper
 
 app = Flask(__name__)
-r = redis.Redis(host="redis-17990.c1.ap-southeast-1-1.ec2.cloud.redislabs.com", port=17990, password=os.environ.get("REDIS_PASS"), health_check_interval=30)
+r = redis.Redis(host=os.environ.get("REDIS_HOST"), port=17990, password=os.environ.get("REDIS_PASS"), health_check_interval=30)
 line_bot_api = LineBotApi(os.environ.get("LINE_ACCESS_TOKEN"))
 handler = WebhookHandler(os.environ.get("LINE_SECRET"))
-# client = pymongo.MongoClient("mongodb+srv://default:"+os.environ.get("MONGO_CRED")+"@database.07g0f.gcp.mongodb.net/?retryWrites=true&w=majority")
-# db = client.websh
-# sh = db.links
+tempfile = "/tmp/ss.jpg"
+keyword = os.environ.get("KEYWORD")
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
@@ -41,10 +32,33 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if event.message.text=="Ed":
+    if event.message.text.lower()=="ed":
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="Moved App Engine to Jakarta"))
+            TextSendMessage(text="aing cupu")
+        )
+    elif event.message.text.lower()==keyword:
+        r.set(keyword, 1)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Keyword accepted")
+        )
+
+@handler.add(MessageEvent, message=ImageMessage)
+def handle_image(event):
+    message_content = line_bot_api.get_message_content(event.message.id)
+    with open(tempfile, 'wb') as fd:
+        for chunk in message_content.iter_content():
+            fd.write(chunk)
+    output = vision_helper.ocr(tempfile)
+    if int(r.get(keyword).decode('ascii'))==1:
+        currencies = sheets_helper.convert_currencies(output)
+        output = sheets_helper.update_sheets(currencies)
+        r.set(keyword, 0)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=str(output))
+    )
 
 @app.route("/")
 def home():
@@ -59,11 +73,6 @@ def favicon():
 @app.route('/test/<key>')
 def test(key):
     return r.get(key)
-
-# @app.route('/sh/<path>')
-# def redirect(path):
-#     data = sh.find_one({"path":path})
-#     return redirect(data["target"], 301)
 
 @app.route('/discord')
 def discord():
