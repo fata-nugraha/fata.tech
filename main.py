@@ -10,6 +10,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, ImageMessage, ImageSendMessage
 )
+from pubsub_helper import pubsub_helper
 from vision_helper import vision_helper
 from sheets_helper import sheets_helper
 
@@ -59,6 +60,11 @@ def handle_image(event):
         event.reply_token,
         TextSendMessage(text=str(output))
     )
+
+@app.route('/publish/<message>')
+def sendemail(message):
+    pubsub_helper.publish(message)
+    return "Email Sent"
 
 @app.route("/")
 def home():
