@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/styles.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-white portfolio-navbar gradient">
+        <div class="container"><a class="navbar-brand logo" href="index.html">Fata Nugraha</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="/myprojects">My Projects</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="/myresume">My Resume</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" href="/hireme">Hire me</a>
+                    </li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <main class="page cv-page">
+        <section class="portfolio-block cv">
+            <div class="container">
+                <div class="work-experience group">
+                    <div class="heading">
+                        <h2 class="text-center">Work Experience</h2>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3><strong>Big Data Research Assistant</strong><br></h3>
+                                <h4 class="organization">Bandung Institute of Technology<br>Knowledge and Software Engineering Research Group<br></h4>
+                            </div>
+                            <div class="col-md-6"><span class="period">05/2020 - now</span></div>
+                        </div>
+                        <ul>
+                            <li>Analyze national public elections data from Vote Counting Information System (Situng KPU, website: https://pemilu2019.kpu.go.id) using Big Data tools like Hadoop and Hive<br></li>
+                            <li>Developed data visualization using ReactJS and D3.js<br></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Database Laboratory Assistant</h3>
+                                <h4 class="organization">Bandung Institute of Technology</h4>
+                            </div>
+                            <div class="col-md-6"><span class="period">08/2019 - now</span></div>
+                        </div>
+                        <ul>
+                            <li>Assist students in Database courses by providing practice questions and group assignments</li>
+                            <li>Provides exam tutorials for students<br></li>
+                        </ul>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>Backend Developer</h3>
+                                <h4 class="organization">
+                                    <a href="https://tannaga.com/" target="_blank" class="tannaga">tannaga.com</a>
+                                </h4>
+                            </div>
+                            <div class="col-md-6"><span class="period">06/2019 - 02/2020</span></div>
+                        </div>
+                        <ul>
+                            <li>Developed a system to make writing letters easier based on available templates</li>
+                            <li>Implemented an API to send and receive documents with Google Drive, and edit these documents with the help of Google Docs, and convert the .docx file to a .pdf file</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="education group">
+                    <div class="heading">
+                        <h2 class="text-center">Education</h2>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3>Informatics Engineering</h3>
+                                <h4 class="organization">Bandung Institute of Technology</h4>
+                            </div>
+                            <div class="col-6"><span class="period">08/2017 - 07/2021 (expected)</span></div>
+                        </div>
+                        <ul>
+                            <li>Cumulative GPA: <strong>3.90/4.00</strong><br></li>
+                            <li>IF2240 – Database Course Assistant (Jan 2020 – June 2020)</li>
+                            <li>Academic and Welfare – Informatics Student Union (HMIF ITB)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="education group">
+                    <div class="heading">
+                        <h2 class="text-center">ACHIEVEMENT</h2>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3><strong>National Finalist</strong></h3>
+                                <h4 class="organization" id="osn">OSN - Mathematics</h4>
+                            </div>
+                            <div class="col-6"><span class="period">2016</span></div>
+                        </div>
+                        <p class="text-muted">Ranked 6th at Central Java Province</p>
+                    </div>
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3><strong>AKABRI 70 Scholarship</strong></h3>
+                            </div>
+                            <div class="col-md-6"><span class="period">2018 - now</span></div>
+                        </div>
+                        <p class="text-muted">A scholarship for selected bachelor students in Magelang City from 1st Alumnee of Magelang Military Academy. The scholarship’s awardee is selected student from some of the best universities in Indonesia.</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="row">
+                        <div class="col-md-6 offset-3">
+                            <div class="contact-info portfolio-info-card">
+                                <h2>Contact Info</h2>
+                                <div class="row">
+                                    <div class="col-1"><i class="icon ion-person icon"></i></div>
+                                    <div class="col-9"><span>Fata Nugraha</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
+                                    <div class="col-9"><span>+6281223987608</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1"><i class="icon ion-at icon"></i></div>
+                                    <div class="col-9"><span>ftnfata@gmail.com</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mylink">Download my resume&nbsp;<a href="https://fata.tech/resume" target="_blank">here</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer gradient">
+        <div class="container">
+            <div class="social-icons">
+                <a href="mailto:ftnfata@gmail.com" target="_blank">
+                    <i class="icon ion-email"></i>
+                </a>
+                <a href="https://github.com/fata-nugraha" target="_blank">
+                    <i class="icon ion-social-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/fata-nugraha/" target="_blank">
+                    <i class="icon ion-social-linkedin"></i>
+                </a>
+            </div>
+            <div class="links">
+                <p>Fata Nugraha - 2020</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/pikaday.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/theme.js') }}"></script>
+</body>
+
+</html>

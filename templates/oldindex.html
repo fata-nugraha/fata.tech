@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Fata Nugraha</title>
+    <meta property="og:title" content="Fata Nugraha">
+    <meta property="og:description" content="Welcome to My Website">
+    <meta name="google-signin-client_id" content="555602768717-g0oeai3aqtbs24u6fk00qkr6jf4q4342.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<a href="/">
+		<img class="home" src="{{url_for('static', filename='profile.png')}}" />
+	</a>
+	<div id="my-signin2"></div>
+	<h1 class="main">
+		Welcome to My Website <br> Visitor : {{  visitor  }} <br> ~FtN-
+	</h1>
+	<div class="smiley">
+		<h2 >&#128579;</h2>
+	</div>
+	<div class="resume-wrapper">
+		<a class="resume" href="/resume" target="_blank">
+			<div>
+				MY RESUME
+			</div>
+		</a>
+	</div>
+	<div class="social-logo">
+		<a href="https://github.com/fata-nugraha"  target="_blank" class="github">
+			<img  src="{{url_for('static', filename='github.png')}}"/>
+		</a>
+		<a href="https://www.linkedin.com/in/fata-nugraha" target="_blank" class="linkedin">
+			<img  src="{{url_for('static', filename='linkedin.png')}}"/>
+		</a>
+	</div>
+	<a href="/" class="myfab">
+		&#9993;
+	</a>
+</body>
+<script src="{{url_for('static', filename='script.js')}}"></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</html>

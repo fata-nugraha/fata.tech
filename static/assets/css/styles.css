@@ -1,0 +1,98 @@
+.social-icons {
+	margin: 0;
+	margin-bottom: 20px;
+}
+
+a.social-icons {
+	border-width: 1px;
+	color: rgb(0,0,0);
+}
+
+.ion-email {
+	color: rgb(255,255,255);
+	font-size: 30px;
+}
+
+.ion-social-github {
+	color: rgb(0,0,0);
+	padding: 0px;
+	font-size: 30px;
+}
+
+.ion-social-linkedin {
+	border-width: 0;
+	font-size: 28px;
+}
+
+p.links {
+	width: 228px;
+	font-size: 18px;
+	margin: 0;
+}
+
+.organization {
+	color: rgb(255,255,255);
+}
+
+a.organization {
+	text-decoration-color: rgb(255,255,255);
+}
+
+p.group {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 24px;
+}
+
+.about-me italic {
+	-webkit-transition: -webkit-transform 1.5s ease-in-out;
+	font-size: 23px;
+	text-align: center;
+	display: inline-block;
+}
+
+.about-me italic:hover{
+	transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+}
+
+.mylink {
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	margin-top: 20px;
+}
+
+.avatar {
+	background-image:url(&quot;assets/img/logo/logo.png&quot;);
+}
+
+.project-card-no-image {
+	height: 300px;
+}
+
+.project-card-no-image h3{
+	height: 50px;
+}
+
+.project-card-no-image h4{
+	height: 100px;
+}
+
+.tannaga {
+	color: white;
+}
+
+.tannaga:hover {
+	color: white;
+}
+
+.fulllist {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 24px;
+}
+
+#osn {
+	background-color: blue;
+}

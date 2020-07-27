@@ -67,10 +67,28 @@ def sendemail(message):
     pubsub_helper.publish(message)
     return "Email Sent"
 
+@app.route('/mailme', methods=['POST'])
+def mailme():
+    msg = request.form.get('email') + " : " + request.form.get("message")
+    pubsub_helper.publish(msg)
+    return render_template("thanks.html")
+
 @app.route("/")
 def home():
     r.incr("visitor")
     return render_template("index.html", visitor=r.get("visitor").decode('ascii'))
+
+@app.route("/myprojects")
+def myprojects():
+    return render_template("projects.html")
+
+@app.route("/myresume")
+def myresume():
+    return render_template("cv.html")
+
+@app.route("/hireme")
+def hireme():
+    return render_template("hire-me.html")
 
 @app.route('/favicon.ico')
 def favicon():
@@ -94,18 +112,18 @@ def resume():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                 'resume.pdf', mimetype='application/pdf')
 
-@app.context_processor
-def override_url_for():
-    return dict(url_for=dated_url_for)
+# @app.context_processor
+# def override_url_for():
+#     return dict(url_for=dated_url_for)
 
-def dated_url_for(endpoint, **values):
-    if endpoint == 'static':
-        filename = values.get('filename', None)
-        if filename:
-            file_path = os.path.join(app.root_path,
-                                     endpoint, filename)
-            values['q'] = int(os.stat(file_path).st_mtime)
-    return url_for(endpoint, **values)
+# def dated_url_for(endpoint, **values):
+#     if endpoint == 'static':
+#         filename = values.get('filename', None)
+#         if filename:
+#             file_path = os.path.join(app.root_path,
+#                                      endpoint, filename)
+#             values['q'] = int(os.stat(file_path).st_mtime)
+#     return url_for(endpoint, **values)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=8080)
